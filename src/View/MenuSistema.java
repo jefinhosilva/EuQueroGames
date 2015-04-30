@@ -12,11 +12,11 @@ import javax.swing.JFrame;
  *
  * @author labcst2
  */
-public class Principal extends javax.swing.JFrame {
-        
+public class MenuSistema extends javax.swing.JFrame {
+
     RepositorioGames repositoriogame = new RepositorioGames();
-    
-    public Principal() {
+
+    public MenuSistema() {
         initComponents();
     }
 
@@ -36,12 +36,15 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        menuCadastros = new javax.swing.JMenu();
+        menuCadastraProdutos = new javax.swing.JMenu();
+        menuInserir = new javax.swing.JMenuItem();
+        menuBuscar = new javax.swing.JMenuItem();
+        menuRemover = new javax.swing.JMenuItem();
+        menuCadastraClientes = new javax.swing.JMenu();
+        menuCadastraFuncionarios = new javax.swing.JMenu();
+        menuCadastraFornecedor = new javax.swing.JMenu();
+        menuSair = new javax.swing.JMenu();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -54,6 +57,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu do Sistema");
+        setResizable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,35 +71,54 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        jMenu5.setText("Opções");
+        menuCadastros.setText("Cadastros");
 
-        jMenu7.setText("Cadastro Game");
-
-        jMenuItem7.setText("Inserir");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastraProdutos.setText("Cadastros de Produtos");
+        menuCadastraProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                menuCadastraProdutosActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem7);
 
-        jMenuItem1.setText("Alterar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuInserir.setText("Inserir");
+        menuInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuInserirActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem1);
+        menuCadastraProdutos.add(menuInserir);
 
-        jMenuItem2.setText("Remover");
-        jMenu7.add(jMenuItem2);
+        menuBuscar.setText("Buscar");
+        menuBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBuscarActionPerformed(evt);
+            }
+        });
+        menuCadastraProdutos.add(menuBuscar);
 
-        jMenu5.add(jMenu7);
+        menuRemover.setText("Remover");
+        menuCadastraProdutos.add(menuRemover);
 
-        jMenuBar3.add(jMenu5);
+        menuCadastros.add(menuCadastraProdutos);
 
-        jMenu6.setText("Sair");
-        jMenuBar3.add(jMenu6);
+        menuCadastraClientes.setText("Cadastros de Clientes");
+        menuCadastros.add(menuCadastraClientes);
+
+        menuCadastraFuncionarios.setText("Cadastros de Funcionarios");
+        menuCadastros.add(menuCadastraFuncionarios);
+
+        menuCadastraFornecedor.setText("Cadastros de Fornecedores");
+        menuCadastros.add(menuCadastraFornecedor);
+
+        jMenuBar3.add(menuCadastros);
+
+        menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
+        jMenuBar3.add(menuSair);
 
         setJMenuBar(jMenuBar3);
 
@@ -110,22 +134,29 @@ public class Principal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        CadastroGames game = new CadastroGames();
+    private void menuInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInserirActionPerformed
+        CadastraProduto game = new CadastraProduto();
         game.pack();
         game.setVisible(true);
         game.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_menuInserirActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-            
-        Altera altera = new Altera();
-            altera.pack();
-            altera.setVisible(true);
-            altera.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void menuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBuscarActionPerformed
+        BuscarProduto bp = new BuscarProduto();
+        bp.pack();
+        bp.setVisible(true);
+        bp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menuBuscarActionPerformed
+    private void menuCadastraProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastraProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuCadastraProdutosActionPerformed
+
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,20 +175,21 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuSistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuSistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuSistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuSistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new MenuSistema().setVisible(true);
             }
         });
     }
@@ -165,16 +197,25 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menuBuscar;
+    private javax.swing.JMenu menuCadastraClientes;
+    private javax.swing.JMenu menuCadastraFornecedor;
+    private javax.swing.JMenu menuCadastraFuncionarios;
+    private javax.swing.JMenu menuCadastraProdutos;
+    private javax.swing.JMenu menuCadastros;
+    private javax.swing.JMenuItem menuInserir;
+    private javax.swing.JMenuItem menuRemover;
+    private javax.swing.JMenu menuSair;
     // End of variables declaration//GEN-END:variables
 }
+/* Metodo Alterar
+Altera altera = new Altera();
+            altera.pack();
+            altera.setVisible(true);
+            altera.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+*/
