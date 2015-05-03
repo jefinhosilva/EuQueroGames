@@ -5,10 +5,18 @@ import java.util.Objects;
 
 public class Usuario {
     
-    private String login;
-    private String senha;
+    private String login,senha,confSenha;
 
-    public Usuario(String login, String senha) {
+    public String getConfSenha() {
+        return confSenha;
+    }
+
+    public void setConfSenha(String confSenha) {
+        this.confSenha = confSenha;
+    }
+    
+    public Usuario(String login, String senha,String confSenha) {
+        this.confSenha = confSenha;
         this.login = login;
         this.senha = senha;
     }

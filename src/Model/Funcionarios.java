@@ -5,28 +5,109 @@ import java.util.Objects;
 
 public class Funcionarios extends Usuario{
 
-    private String CPF,nomeFunc,telefone,matricula;
-    private int sexo,setor;
+    private String nome,telefone,matricula,endereco,bairro,cidade,RG,CPF,dataCadastro,email,CEP,contato;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    private int sexo,setor,UF;
 
     public Funcionarios() {
     }
 
-    public Funcionarios(String CPF, String nomeFunc, String telefone, String matricula, int sexo, int setor, String login, String senha) {
-        super(login, senha);
-        this.CPF = CPF;
-        this.nomeFunc = nomeFunc;
+    public Funcionarios(String contato,String CEP,String nome, String telefone, String matricula, String endereco, String bairro, String cidade, String RG, String CPF, String dataCadastro, String email, int sexo, int setor, int UF, String login, String confSenha,String senha) {
+        super(login, senha,confSenha);
+        this.contato = contato;
+        this.CEP = CEP;
+        this.nome = nome;
         this.telefone = telefone;
         this.matricula = matricula;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.RG = RG;
+        this.CPF = CPF;
+        this.dataCadastro = dataCadastro;
+        this.email = email;
         this.sexo = sexo;
         this.setor = setor;
+        this.UF = UF;
     }
 
-  
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getRG() {
+        return RG;
+    }
+
+    public void setRG(String RG) {
+        this.RG = RG;
+    }
+
+    public String getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public int getUF() {
+        return UF;
+    }
+
+    public void setUF(int UF) {
+        this.UF = UF;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.CPF);
-        hash = 59 * hash + Objects.hashCode(this.matricula);
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.matricula);
+        hash = 83 * hash + Objects.hashCode(this.RG);
+        hash = 83 * hash + Objects.hashCode(this.CPF);
         return hash;
     }
 
@@ -39,16 +120,17 @@ public class Funcionarios extends Usuario{
             return false;
         }
         final Funcionarios other = (Funcionarios) obj;
-        if (!Objects.equals(this.CPF, other.CPF)) {
+        if (!Objects.equals(this.matricula, other.matricula)) {
             return false;
         }
-        if (!Objects.equals(this.matricula, other.matricula)) {
+        if (!Objects.equals(this.RG, other.RG)) {
+            return false;
+        }
+        if (!Objects.equals(this.CPF, other.CPF)) {
             return false;
         }
         return true;
     }
-    
-    
 
     public String getCPF() {
         return CPF;
@@ -58,12 +140,12 @@ public class Funcionarios extends Usuario{
         this.CPF = CPF;
     }
 
-    public String getNomeFunc() {
-        return nomeFunc;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeFunc(String nomeFunc) {
-        this.nomeFunc = nomeFunc;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getTelefone() {

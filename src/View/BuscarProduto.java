@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 
 public class BuscarProduto extends javax.swing.JFrame {
     
-    Games obj;
-    RepositorioGames repositoriogame = new RepositorioGames();
+    Games g;
+    RepositorioGames gdata;
     
     public BuscarProduto() {
         initComponents();
@@ -45,7 +45,7 @@ public class BuscarProduto extends javax.swing.JFrame {
         jcbano = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jtpreco = new javax.swing.JTextField();
-        jbcancelar1 = new javax.swing.JButton();
+        jbvoltar = new javax.swing.JButton();
         jbpesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -149,12 +149,12 @@ public class BuscarProduto extends javax.swing.JFrame {
         jtpreco.setEditable(false);
         jtpreco.setEnabled(false);
 
-        jbcancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon voltar.png"))); // NOI18N
-        jbcancelar1.setText("Voltar");
-        jbcancelar1.setBorder(null);
-        jbcancelar1.addActionListener(new java.awt.event.ActionListener() {
+        jbvoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon voltar.png"))); // NOI18N
+        jbvoltar.setText("Voltar");
+        jbvoltar.setBorder(null);
+        jbvoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbcancelar1ActionPerformed(evt);
+                jbvoltarActionPerformed(evt);
             }
         });
 
@@ -239,7 +239,7 @@ public class BuscarProduto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jbcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbcancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbvoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -271,7 +271,7 @@ public class BuscarProduto extends javax.swing.JFrame {
                             .addComponent(jbeditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbcancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbvoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -345,6 +345,7 @@ public class BuscarProduto extends javax.swing.JFrame {
         jbeditar.setEnabled(true);
         jbsalvar.setEnabled(false);
         jbcancelar.setEnabled(false);
+        jbvoltar.setEnabled(true);
     }//GEN-LAST:event_jbcancelarActionPerformed
 
     private void jbeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeditarActionPerformed
@@ -370,6 +371,7 @@ public class BuscarProduto extends javax.swing.JFrame {
         jbeditar.setEnabled(false);
         jbsalvar.setEnabled(true);
         jbcancelar.setEnabled(true);
+        jbvoltar.setEnabled(true);
     }//GEN-LAST:event_jbeditarActionPerformed
 
     private void jbsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvarActionPerformed
@@ -377,7 +379,7 @@ public class BuscarProduto extends javax.swing.JFrame {
             if (validarCampos()) {
                 if (preencherObject()) {
                     //salvar no banco
-                    int returno = repositoriogame.inserir(obj);
+                    int returno = gdata.inserir(g);
                     if (returno == 0) {
                         JOptionPane.showConfirmDialog(this, "Registro salvo com sucesso !");
                         limparCampos();
@@ -403,6 +405,7 @@ public class BuscarProduto extends javax.swing.JFrame {
                         jbeditar.setEnabled(true);
                         jbsalvar.setEnabled(false);
                         jbcancelar.setEnabled(false);
+                        jbvoltar.setEnabled(true);
                     } else {
                         if (returno == -1) {
                             JOptionPane.showMessageDialog(this, "Codigo Já Cadastrado!");
@@ -420,31 +423,33 @@ public class BuscarProduto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbsalvarActionPerformed
 
-    private void jbcancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelar1ActionPerformed
+    private void jbvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbvoltarActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jbcancelar1ActionPerformed
+    }//GEN-LAST:event_jbvoltarActionPerformed
 
     private void jbpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbpesquisarActionPerformed
         if (jtcodigo.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o código do produto");
+            JOptionPane.showMessageDialog(this, "Digite o código do produto!");
             jtcodigo.requestFocus();
         } else {
-            RepositorioGames games = new RepositorioGames();
-            obj = games.buscar(jtcodigo.getText());
-            if (obj == null) {
+            
+            g = gdata.buscar(jtcodigo.getText());
+            if (g == null) {
                 JOptionPane.showMessageDialog(this, "Registro não encontrado!");
             } else {
-                jtnome.setText(obj.getNomeGame());
-                jtdataCadastro.setText(obj.getDataCadatro());
-                jtpreco.setText(Double.toString(obj.getPreco()));
-                jtdesenvolvedor.setText(obj.getDesenvolvedor());
-                jtdescricao.setText(obj.getDescricao());
-                jcbgenero.setSelectedIndex(obj.getGenero());
-                jcbplataforma.setSelectedIndex(obj.getPlataforma());
-                jcbano.setSelectedIndex(obj.getAno());
-                jtfornecedor.setText(obj.getFornecedor());
+                jtnome.setText(g.getNomeGame());
+                jtdataCadastro.setText(g.getDataCadatro());
+                jtpreco.setText(Double.toString(g.getPreco()));
+                jtdesenvolvedor.setText(g.getDesenvolvedor());
+                jtdescricao.setText(g.getDescricao());
+                jcbgenero.setSelectedIndex(g.getGenero());
+                jcbplataforma.setSelectedIndex(g.getPlataforma());
+                jcbano.setSelectedIndex(g.getAno());
+                jtfornecedor.setText(g.getFornecedor());
                 jbeditar.setEnabled(true);
                 jbsalvar.setEnabled(true);
+                jbcancelar.setEnabled(true);
+                jbvoltar.setEnabled(true);
                 
             }
         }
@@ -504,10 +509,10 @@ public class BuscarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbcancelar;
-    private javax.swing.JButton jbcancelar1;
     private javax.swing.JButton jbeditar;
     private javax.swing.JButton jbpesquisar;
     private javax.swing.JButton jbsalvar;
+    private javax.swing.JButton jbvoltar;
     private javax.swing.JComboBox jcbano;
     private javax.swing.JComboBox jcbgenero;
     private javax.swing.JComboBox jcbplataforma;
@@ -579,16 +584,16 @@ public class BuscarProduto extends javax.swing.JFrame {
     }
     
     private boolean preencherObject() throws Exception {
-        obj = new Games();
-        obj.setCodigo(jtcodigo.getText());
-        obj.setDataCadatro(jtdataCadastro.getText());
-        obj.setNomeGame(jtnome.getText());
-        obj.setPreco(Double.parseDouble(jtpreco.getText()));
-        obj.setDesenvolvedor(jtdescricao.getText());
-        obj.setDescricao(jtdesenvolvedor.getText());
-        obj.setGenero(jcbgenero.getSelectedIndex());
-        obj.setPlataforma(jcbplataforma.getSelectedIndex());
-        obj.setAno(jcbano.getSelectedIndex());
+        g = new Games();
+        g.setCodigo(jtcodigo.getText());
+        g.setDataCadatro(jtdataCadastro.getText());
+        g.setNomeGame(jtnome.getText());
+        g.setPreco(Double.parseDouble(jtpreco.getText()));
+        g.setDesenvolvedor(jtdescricao.getText());
+        g.setDescricao(jtdesenvolvedor.getText());
+        g.setGenero(jcbgenero.getSelectedIndex());
+        g.setPlataforma(jcbplataforma.getSelectedIndex());
+        g.setAno(jcbano.getSelectedIndex());
         return true;
     }
     

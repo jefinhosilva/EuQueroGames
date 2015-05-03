@@ -5,21 +5,20 @@
  */
 package View;
 
-import Model.Cliente;
+import Model.Fornecedor;
+import data.RepositorioGames;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Marcinho
  */
-public class CadastraCliente extends javax.swing.JFrame {
+public class BuscarFornecedor extends javax.swing.JFrame {
 
-    Cliente c;
+    Fornecedor f;
+    //RepositorioFornecedores fdata;
 
-    /**
-     * Creates new form NovaTelaCadastro
-     */
-    public CadastraCliente() {
+    public BuscarFornecedor() {
         initComponents();
     }
 
@@ -32,44 +31,42 @@ public class CadastraCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jtnomeRep = new javax.swing.JTextField();
         jtregistro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jtdataCadastro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jtendereco = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jtnome = new javax.swing.JTextField();
+        jtRSocial = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jtbairro = new javax.swing.JTextField();
+        jtnomeFantasia = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jtcidade = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jcUF = new javax.swing.JComboBox();
+        jtCNPJ = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jtCEP = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jtemail = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jtcontato = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jtCNPJ = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jtCPF = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jtRG = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jcsexo = new javax.swing.JComboBox();
         jbvoltar = new javax.swing.JButton();
-        jbnovo = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jtcontato = new javax.swing.JTextField();
         jbsalvar = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jbcancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jbpesquisar = new javax.swing.JButton();
+        jbeditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tela Cadastro de Clientes");
-        setResizable(false);
 
-        jLabel1.setText("Registro");
+        jtnomeRep.setEditable(false);
+        jtnomeRep.setEnabled(false);
 
         jtregistro.setEditable(false);
         jtregistro.setEnabled(false);
@@ -86,13 +83,18 @@ public class CadastraCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Endereço");
 
-        jtnome.setEditable(false);
-        jtnome.setEnabled(false);
+        jtRSocial.setEditable(false);
+        jtRSocial.setEnabled(false);
 
         jLabel5.setText("Bairro");
 
+        jLabel10.setText("Nome Fantasia");
+
         jtbairro.setEditable(false);
         jtbairro.setEnabled(false);
+
+        jtnomeFantasia.setEditable(false);
+        jtnomeFantasia.setEnabled(false);
 
         jLabel6.setText("Cidade");
 
@@ -100,6 +102,8 @@ public class CadastraCliente extends javax.swing.JFrame {
         jtcidade.setEnabled(false);
 
         jLabel7.setText("UF");
+
+        jLabel12.setText("Nº CNPJ");
 
         jcUF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---", "PE", "RJ", "RS", "SP" }));
         jcUF.setEnabled(false);
@@ -114,31 +118,6 @@ public class CadastraCliente extends javax.swing.JFrame {
         jtemail.setEditable(false);
         jtemail.setEnabled(false);
 
-        jLabel10.setText("Contato");
-
-        jtcontato.setEditable(false);
-        jtcontato.setEnabled(false);
-
-        jLabel11.setText("N° CNPJ");
-
-        jtCNPJ.setEditable(false);
-        jtCNPJ.setEnabled(false);
-
-        jLabel12.setText("N° CPF");
-
-        jtCPF.setEditable(false);
-        jtCPF.setEnabled(false);
-
-        jLabel13.setText("N° RG");
-
-        jtRG.setEditable(false);
-        jtRG.setEnabled(false);
-
-        jLabel14.setText("Sexo");
-
-        jcsexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione>", "Masculino", "Feminino" }));
-        jcsexo.setEnabled(false);
-
         jbvoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon voltar.png"))); // NOI18N
         jbvoltar.setText("Voltar");
         jbvoltar.setBorder(null);
@@ -148,14 +127,10 @@ public class CadastraCliente extends javax.swing.JFrame {
             }
         });
 
-        jbnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon add.png"))); // NOI18N
-        jbnovo.setText("Novo");
-        jbnovo.setBorder(null);
-        jbnovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbnovoActionPerformed(evt);
-            }
-        });
+        jLabel11.setText("Contato");
+
+        jtcontato.setEditable(false);
+        jtcontato.setEnabled(false);
 
         jbsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon salvar.png"))); // NOI18N
         jbsalvar.setText("Salvar");
@@ -167,6 +142,8 @@ public class CadastraCliente extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setText("Nome Representante");
+
         jbcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon cancelar.png"))); // NOI18N
         jbcancelar.setText("Cancelar");
         jbcancelar.setBorder(null);
@@ -174,6 +151,27 @@ public class CadastraCliente extends javax.swing.JFrame {
         jbcancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbcancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Registro");
+
+        jbpesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon Pesquisar.png"))); // NOI18N
+        jbpesquisar.setText("Pesquisar");
+        jbpesquisar.setBorder(null);
+        jbpesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbpesquisarActionPerformed(evt);
+            }
+        });
+
+        jbeditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon add.png"))); // NOI18N
+        jbeditar.setText("Editar");
+        jbeditar.setBorder(null);
+        jbeditar.setEnabled(false);
+        jbeditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbeditarActionPerformed(evt);
             }
         });
 
@@ -193,23 +191,13 @@ public class CadastraCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jtdataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
-                        .addComponent(jbnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addComponent(jbeditar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jbcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jbvoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel12)
-                    .addComponent(jtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(290, 290, 290)
-                        .addComponent(jLabel14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jcsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(485, 485, 485)
@@ -232,18 +220,35 @@ public class CadastraCliente extends javax.swing.JFrame {
                         .addComponent(jtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel9)
                     .addComponent(jtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel12)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jbpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jtRSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jtnomeFantasia)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtcontato, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jtcontato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel13)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jtnomeRep))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,8 +259,9 @@ public class CadastraCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbeditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jbcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbvoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -265,17 +271,21 @@ public class CadastraCliente extends javax.swing.JFrame {
                             .addComponent(jtdataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(5, 5, 5)
                 .addComponent(jLabel12)
-                .addGap(6, 6, 6)
-                .addComponent(jtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel14))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(10, 10, 10)
+                        .addComponent(jtRSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(6, 6, 6)
+                        .addComponent(jtnomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -303,19 +313,15 @@ public class CadastraCliente extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(6, 6, 6)
                         .addComponent(jtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtcontato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(jLabel13)
                         .addGap(6, 6, 6)
-                        .addComponent(jtcontato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addComponent(jtnomeRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -326,44 +332,12 @@ public class CadastraCliente extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jbvoltarActionPerformed
 
-    private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
-        limparCampos();
-        jtregistro.setEditable(true);
-        jtregistro.setEnabled(true);
-        jtdataCadastro.setEditable(true);
-        jtdataCadastro.setEnabled(true);
-        jtnome.setEditable(true);
-        jtnome.setEnabled(true);
-        jcsexo.setEnabled(true);
-        jtcontato.setEditable(true);
-        jtcontato.setEnabled(true);
-        jtendereco.setEditable(true);
-        jtendereco.setEnabled(true);
-        jcUF.setEnabled(true);
-        jtbairro.setEditable(true);
-        jtbairro.setEnabled(true);
-        jtcidade.setEditable(true);
-        jtcidade.setEnabled(true);
-        jtemail.setEditable(true);
-        jtemail.setEnabled(true);
-        jtCEP.setEditable(true);
-        jtCEP.setEnabled(true);
-        jtCNPJ.setEditable(true);
-        jtCNPJ.setEnabled(true);
-        jtCPF.setEditable(true);
-        jtCPF.setEnabled(true);
-        jtRG.setEditable(true);
-        jtRG.setEnabled(true);
-        jbnovo.setEnabled(false);
-        jbsalvar.setEnabled(true);
-        jbcancelar.setEnabled(true);
-    }//GEN-LAST:event_jbnovoActionPerformed
-
     private void jbsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalvarActionPerformed
         /*try {
          if (validarCampos()) {
          if (preencherObject()) {
-         int returno = cdata.inserir(c);
+         //salvar no banco
+         int returno = fdata.inserir(f);
          if (returno == 0) {
          JOptionPane.showConfirmDialog(this, "Registro salvo com sucesso !");
          limparCampos();
@@ -371,11 +345,12 @@ public class CadastraCliente extends javax.swing.JFrame {
          jtregistro.setEnabled(false);
          jtdataCadastro.setEditable(false);
          jtdataCadastro.setEnabled(false);
-         jtnome.setEditable(false);
-         jtnome.setEnabled(false);
-         jcsexo.setEnabled(false);
-         jtcontato.setEditable(false);
-         jtcontato.setEnabled(false);
+         jtCNPJ.setEditable(false);
+         jtCNPJ.setEnabled(false);
+         jtRSocial.setEditable(false);
+         jtRSocial.setEnabled(false);
+         jtnomeFantasia.setEditable(false);
+         jtnomeFantasia.setEnabled(false);
          jtendereco.setEditable(false);
          jtendereco.setEnabled(false);
          jcUF.setEnabled(false);
@@ -387,15 +362,14 @@ public class CadastraCliente extends javax.swing.JFrame {
          jtemail.setEnabled(false);
          jtCEP.setEditable(false);
          jtCEP.setEnabled(false);
-         jtCNPJ.setEditable(false);
-         jtCNPJ.setEnabled(false);
-         jtCPF.setEditable(false);
-         jtCPF.setEnabled(false);
-         jtRG.setEditable(false);
-         jtRG.setEnabled(false);
-         jbnovo.setEnabled(true);
+         jtcontato.setEditable(false);
+         jtcontato.setEnabled(false);
+         jtnomeRep.setEditable(false);
+         jtnomeRep.setEnabled(false);
+         jbeditar.setEnabled(false);
          jbsalvar.setEnabled(false);
          jbcancelar.setEnabled(false);
+         jbvoltar.setEnabled(true);
          } else {
          if (returno == -1) {
          JOptionPane.showMessageDialog(this, "Codigo Já Cadastrado!");
@@ -418,11 +392,12 @@ public class CadastraCliente extends javax.swing.JFrame {
         jtregistro.setEnabled(false);
         jtdataCadastro.setEditable(false);
         jtdataCadastro.setEnabled(false);
-        jtnome.setEditable(false);
-        jtnome.setEnabled(false);
-        jcsexo.setEnabled(false);
-        jtcontato.setEditable(false);
-        jtcontato.setEnabled(false);
+        jtCNPJ.setEditable(false);
+        jtCNPJ.setEnabled(false);
+        jtRSocial.setEditable(false);
+        jtRSocial.setEnabled(false);
+        jtnomeFantasia.setEditable(false);
+        jtnomeFantasia.setEnabled(false);
         jtendereco.setEditable(false);
         jtendereco.setEnabled(false);
         jcUF.setEnabled(false);
@@ -434,16 +409,77 @@ public class CadastraCliente extends javax.swing.JFrame {
         jtemail.setEnabled(false);
         jtCEP.setEditable(false);
         jtCEP.setEnabled(false);
-        jtCNPJ.setEditable(false);
-        jtCNPJ.setEnabled(false);
-        jtCPF.setEditable(false);
-        jtCPF.setEnabled(false);
-        jtRG.setEditable(false);
-        jtRG.setEnabled(false);
-        jbnovo.setEnabled(true);
+        jtcontato.setEditable(false);
+        jtcontato.setEnabled(false);
+        jtnomeRep.setEditable(false);
+        jtnomeRep.setEnabled(false);
+        jbeditar.setEnabled(false);
         jbsalvar.setEnabled(false);
         jbcancelar.setEnabled(false);
+        jbvoltar.setEnabled(true);
     }//GEN-LAST:event_jbcancelarActionPerformed
+
+    private void jbpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbpesquisarActionPerformed
+        /* if (jtCNPJ.getText().equals("")) {
+         JOptionPane.showMessageDialog(this, "Digite o CPF do cliente!");
+         jtCNPJ.requestFocus();
+         } else {
+         f = fdata.buscar(jtCNPJ.getText());
+         if (f == null) {
+         JOptionPane.showMessageDialog(this, "Registro não encontrado!");
+         } else {
+                
+         jtdataCadastro.setText(f.getDataCadastro());
+         jtCNPJ.setText(f.getCNPJ());
+         jtRSocial.setText(f.getRSocial());
+         jtnomeFantasia.setText(f.getNomeFantasia());
+         jtendereco.setText(f.getEndereco());
+         jcUF.setSelectedIndex(f.getUF());
+         jtbairro.setText(f.getBairro());
+         jtcidade.setText(f.getCidade());
+         jtCEP.setText(f.getCEP());
+         jtemail.setText(f.getEmail());
+         jtnomeRep.setText(f.getNomeRep());
+         jbeditar.setEnabled(true);
+         jbsalvar.setEnabled(true);
+         jbcancelar.setEnabled(true);
+         jbvoltar.setEnabled(true);
+                
+         }
+         }  */
+    }//GEN-LAST:event_jbpesquisarActionPerformed
+
+    private void jbeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeditarActionPerformed
+        jtregistro.setEditable(false);
+        jtregistro.setEnabled(false);
+        jtdataCadastro.setEditable(false);
+        jtdataCadastro.setEnabled(false);
+        jtCNPJ.setEditable(false);
+        jtCNPJ.setEnabled(true);
+        jtRSocial.setEditable(true);
+        jtRSocial.setEnabled(true);
+        jtnomeFantasia.setEditable(true);
+        jtnomeFantasia.setEnabled(true);
+        jtendereco.setEditable(true);
+        jtendereco.setEnabled(true);
+        jcUF.setEnabled(true);
+        jtbairro.setEditable(true);
+        jtbairro.setEnabled(true);
+        jtcidade.setEditable(true);
+        jtcidade.setEnabled(true);
+        jtemail.setEditable(true);
+        jtemail.setEnabled(true);
+        jtCEP.setEditable(true);
+        jtCEP.setEnabled(true);
+        jtcontato.setEditable(true);
+        jtcontato.setEnabled(true);
+        jtnomeRep.setEditable(true);
+        jtnomeRep.setEnabled(true);
+        jbeditar.setEnabled(false);
+        jbsalvar.setEnabled(true);
+        jbcancelar.setEnabled(true);
+        jbvoltar.setEnabled(true);
+    }//GEN-LAST:event_jbeditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,27 +498,20 @@ public class CadastraCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastraCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastraCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastraCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastraCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastraCliente().setVisible(true);
+                new BuscarFornecedor().setVisible(true);
             }
         });
     }
@@ -493,7 +522,6 @@ public class CadastraCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -503,76 +531,28 @@ public class CadastraCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbcancelar;
-    private javax.swing.JButton jbnovo;
+    private javax.swing.JButton jbeditar;
+    private javax.swing.JButton jbpesquisar;
     private javax.swing.JButton jbsalvar;
     private javax.swing.JButton jbvoltar;
     private javax.swing.JComboBox jcUF;
-    private javax.swing.JComboBox jcsexo;
     private javax.swing.JTextField jtCEP;
     private javax.swing.JTextField jtCNPJ;
-    private javax.swing.JTextField jtCPF;
-    private javax.swing.JTextField jtRG;
+    private javax.swing.JTextField jtRSocial;
     private javax.swing.JTextField jtbairro;
     private javax.swing.JTextField jtcidade;
     private javax.swing.JTextField jtcontato;
     private javax.swing.JTextField jtdataCadastro;
     private javax.swing.JTextField jtemail;
     private javax.swing.JTextField jtendereco;
-    private javax.swing.JTextField jtnome;
+    private javax.swing.JTextField jtnomeFantasia;
+    private javax.swing.JTextField jtnomeRep;
     private javax.swing.JTextField jtregistro;
     // End of variables declaration//GEN-END:variables
- private boolean validarCampos() {
+private boolean validarCampos() {
         if (jtdataCadastro.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite a data de cadastro");
             jtdataCadastro.requestFocus();
-            return false;
-        }
-        if (jtnome.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o nome");
-            jtnome.requestFocus();
-            return false;
-        }
-        if (jcsexo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this, "Selecione o sexo");
-            jcsexo.requestFocus();
-            return false;
-        }
-
-        if (jtcontato.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o cotato");
-            jtcontato.requestFocus();
-            return false;
-        }
-
-        if (jtendereco.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o endereço");
-            jtendereco.requestFocus();
-            return false;
-        }
-
-        if (jcUF.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(this, "Selecione o UF");
-            jcUF.requestFocus();
-            return false;
-        }
-        if (jtbairro.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o bairro");
-            jtbairro.requestFocus();
-            return false;
-        }
-        if (jtcidade.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite a cidade");
-            jtcidade.requestFocus();
-            return false;
-        }
-        if (jtemail.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o email");
-            jtemail.requestFocus();
-            return false;
-        }
-        if (jtCEP.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o CEP");
-            jtCEP.requestFocus();
             return false;
         }
         if (jtCNPJ.getText().equals("")) {
@@ -581,15 +561,58 @@ public class CadastraCliente extends javax.swing.JFrame {
             return false;
         }
 
-        if (jtCPF.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o CPF");
-            jtCPF.requestFocus();
+        if (jtRSocial.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Nome Completo da Empresa");
+            jtRSocial.requestFocus();
             return false;
         }
 
-        if (jtRG.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o RG");
-            jtRG.requestFocus();
+        if (jtnomeFantasia.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Nome Fantasia da Empresa");
+            jtnomeFantasia.requestFocus();
+            return false;
+        }
+        if (jtendereco.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Endereco da Empresa");
+            jtendereco.requestFocus();
+            return false;
+        }
+        if (jcUF.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(this, "Selecione o UF da Empresa");
+            jcUF.requestFocus();
+            return false;
+        }
+        if (jtbairro.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Bairro da Empresa");
+            jtbairro.requestFocus();
+            return false;
+        }
+
+        if (jtcidade.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite a Cidade da Empresa");
+            jtcidade.requestFocus();
+            return false;
+        }
+        if (jtCEP.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o CEP da Empresa");
+            jtCEP.requestFocus();
+            return false;
+        }
+        if (jtemail.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Email da Empresa");
+            jtemail.requestFocus();
+            return false;
+        }
+
+        if (jtcontato.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Contato da Empresa");
+            jtcontato.requestFocus();
+            return false;
+        }
+
+        if (jtnomeRep.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Digite o Nome do Representante da Empresa");
+            jtnomeRep.requestFocus();
             return false;
         }
 
@@ -597,38 +620,36 @@ public class CadastraCliente extends javax.swing.JFrame {
     }
 
     private boolean preencherObject() throws Exception {
-        c = new Cliente();
-        c.setNome(jtnome.getText());
-        c.setDataCadastro(jtdataCadastro.getText());
-        c.setSexo(jcsexo.getSelectedIndex());
-        c.setContato(jtcontato.getText());
-        c.setEndereco(jtendereco.getText());
-        c.setUF(jcUF.getSelectedIndex());
-        c.setBairro(jtbairro.getText());
-        c.setCidade(jtcidade.getText());
-        c.setEmail(jtendereco.getText());
-        c.setCEP(jtCEP.getText());
-        c.setCNPJ(jtCNPJ.getText());
-        c.setCPF(jtCPF.getText());
-        c.setRG(jtRG.getText());
+        f = new Fornecedor();
+        f.setDataCadastro(jtdataCadastro.getText());
+        f.setCNPJ(jtCNPJ.getText());
+        f.setRSocial(jtRSocial.getText());
+        f.setNomeFantasia(jtcontato.getText());
+        f.setEndereco(jtendereco.getText());
+        f.setUF(jcUF.getSelectedIndex());
+        f.setBairro(jtbairro.getText());
+        f.setCidade(jtcidade.getText());
+        f.setCEP(jtCEP.getText());
+        f.setEmail(jtendereco.getText());
+        f.setContato(jtcontato.getText());
+        f.setNomeRep(jtnomeRep.getText());
+
         return true;
     }
 
     private void limparCampos() {
         jtregistro.setText("");
         jtdataCadastro.setText("");
-        jtnome.setText("");
-        jcsexo.setSelectedIndex(0);
-        jtcontato.setText("");
+        jtCNPJ.setText("");
+        jtRSocial.setText("");
+        jtnomeFantasia.setText("");
         jtendereco.setText("");
         jcUF.setSelectedIndex(0);
         jtbairro.setText("");
         jtcidade.setText("");
-        jtemail.setText("");
         jtCEP.setText("");
-        jtCNPJ.setText("");
-        jtCPF.setText("");
-        jtRG.setText("");
+        jtemail.setText("");
+        jtnomeRep.setText("");
 
     }
 
